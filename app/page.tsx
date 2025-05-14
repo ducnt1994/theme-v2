@@ -1,12 +1,10 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import BannerExtra1 from "@/components/page-builders/banners/extra/BannerExtra1";
 
 export default function Home() {
 
   return (
     <div className={styles.page}>
-      <BannerExtra1/>
       <main className={styles.main}>
         <Image
           className={styles.logo}
