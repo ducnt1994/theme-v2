@@ -1,31 +1,19 @@
+import {getServerComponent} from "@/utils/getServerComponent";
+import {ILayoutResponseDto} from "@/types/api";
 
+export default async function PageBuilder({ layout }: ILayoutResponseDto) {
+  const renderedSections = await Promise.all(
+    layout.filter(item => item.is_active).map(async (section, index) => {
+      const Component = await getServerComponent(section.code, section.name);
+      if (!Component) return null;
 
-// import { SectionBlock } from "@/types/api/layout";
-// import { componentFactory } from "@/utils/componentFactory";
-
-interface PageBuilderProps {
-  // layout: SectionBlock[];
-  layout: any[];
-}
-
-// Server Component
-export default function PageBuilder({ layout }: PageBuilderProps) {
-  return (
-    <>
-      {/*{layout.map((section) => {*/}
-      {/*  const SectionComponent =*/}
-      {/*    componentFactory?.[section.type]?.[section.component];*/}
-      {/*  if (!SectionComponent) return null;*/}
-
-      {/*  return (*/}
-      {/*    <div*/}
-      {/*      key={section.id}*/}
-      {/*      style={{ backgroundColor: section.backgroundColor || "transparent" }}*/}
-      {/*    >*/}
-      {/*      <SectionComponent {...section.config} />*/}
-      {/*    </div>*/}
-      {/*  );*/}
-      {/*})}*/}
-    </>
+      return (
+        <div key={index}>
+          <Component />
+        </div>
+      );
+    })
   );
+
+  return <>{renderedSections}</>;
 }

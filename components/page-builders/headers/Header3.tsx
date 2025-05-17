@@ -4,10 +4,9 @@ import {useAppSelector} from "@/redux/hooks";
 import {selectTheme} from "@/features/layout/layoutSelector";
 import Button from "@/components/common/button/Button";
 
-export default function BannerExtra1() {
+export default function Header3() {
   const themeSelected = useAppSelector(selectTheme)
-  console.log("themeSelected", themeSelected);
   return (
-    <div>ducbeoo</div>
+    <div></div>
   )
 }

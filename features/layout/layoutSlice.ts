@@ -1,13 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {ISectionItem} from "@/types/api";
 
 interface LayoutState {
   language: string;
   theme: "light" | "dark";
+
+  // layout config
+  layout: ISectionItem[]
 }
 
 const initialState: LayoutState = {
   language: "vi",
   theme: "light",
+
+  // layout config
+  layout: []
 };
 
 const layoutSlice = createSlice({
@@ -17,11 +24,8 @@ const layoutSlice = createSlice({
     setLanguage(state, action: PayloadAction<string>) {
       state.language = action.payload;
     },
-    toggleTheme(state) {
-      state.theme = state.theme === "light" ? "dark" : "light";
-    },
   },
 });
 
-export const { setLanguage, toggleTheme } = layoutSlice.actions;
+export const { setLanguage } = layoutSlice.actions;
 export default layoutSlice.reducer;
