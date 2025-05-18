@@ -1,4 +1,4 @@
-import { RootState } from "@/redux/store/clientStore";
+import { RootState } from "@/redux/store";
 
 export const selectTheme = (state: RootState) =>
   state.layout.language ||
