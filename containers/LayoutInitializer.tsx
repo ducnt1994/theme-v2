@@ -1,11 +1,11 @@
 import { redirect, notFound } from "next/navigation";
-import { createStore } from "@/redux/store";
+import { store as rootStore } from "@/redux/store";
 import { getLayoutBySlugInitiate, layoutApi } from "@/features/layout/layoutApi";
 import PageBuilder from "@/containers/PageBuilder";
 import { headers } from "next/headers";
 
 async function fetchLayoutData(slug: string) {
-  const store = createStore();
+  const store = rootStore();
   await store.dispatch(getLayoutBySlugInitiate(slug));
   const state = store.getState();
   return layoutApi.endpoints.getLayoutBySlug.select(slug)(state)?.data;
