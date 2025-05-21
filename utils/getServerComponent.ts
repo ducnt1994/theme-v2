@@ -11,11 +11,11 @@ export async function getServerComponent(type: string, name: string) {
           return null;
       }
 
-    case "banner-top":
+    case "banner_top":
       switch (name) {
         case "BannerTop1":
           return (await import("@/components/page-builders/banners/top/BannerTop1")).default;
-        case "BannerTopSlider":
+        case "BannerTop2":
           return (await import("@/components/page-builders/banners/top/BannerTop2")).default;
         default:
           return null;

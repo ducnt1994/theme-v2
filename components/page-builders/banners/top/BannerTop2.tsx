@@ -1,12 +1,17 @@
 
 import React from "react";
-import {useAppSelector} from "@/redux/hooks";
-import {selectTheme} from "@/features/layout/layoutSelector";
-import Button from "@/components/common/button/Button";
+import Marquee from "@/components/common/marquee/Marquee";
+import {Color} from "@/styles/design-system/color";
+import Typography from "@/components/common/typography/Typography";
 
 export default function BannerTop2() {
-  const themeSelected = useAppSelector(selectTheme)
   return (
-    <div>ducbeoo</div>
+    <>
+      <Marquee
+        isRunSlide={true}
+        contentChildren={<Typography textType={'text24S'}>"Đây là đức béo"</Typography>}
+        backgroundColor={Color['black-25']}
+      />
+    </>
   )
 }

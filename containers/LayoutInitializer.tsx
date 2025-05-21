@@ -39,6 +39,11 @@ export default async function LayoutInitializer({ slug }: Props) {
   const fakeData = [
     {
       is_active: true,
+      code: "banner_top",
+      name: "BannerTop2"
+    },
+    {
+      is_active: true,
       code: "header",
       name: "Header1"
     },
